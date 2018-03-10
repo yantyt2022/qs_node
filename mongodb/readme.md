@@ -9,5 +9,7 @@ mongod --dbpath  ../db/27017
 1.      进入cmd终端,进入安装目录下的bin目录下cd e:  切换盘符          cd  E:\mongodbinstall\bin                   
 2.      执行mongod.exe –dbpath=你自己对应的路径
 mongod.exe —dbpath=D:\data\db
+or
+mongod -dbpath D:\data\db
  看到如上结果,说明启动成功 
  3.打开另一个黑屏终端,进入安装目录下的bin目录下,在输入mongo.exe
