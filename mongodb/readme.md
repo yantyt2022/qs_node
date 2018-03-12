@@ -20,11 +20,19 @@ db.users.find({}); 查找users数据表，条件为空
 db.users.find({})。pretty（）  显示出来更漂亮
 column 可以允许一些冗余
 
+.find  返回的是cursor
+以$ 开始的运算符
+mongodb js风格的编译
+表达范围 $gt $lt  用json对象
+.find({num:{"$gt":1995}})  输出大于1995的数字
+.find({num:{"$lt":1995}})  输出小于1995的数字
+.explain("executionStats") 显示运算的详细细节
 
-1.      进入cmd终端,进入安装目录下的bin目录下cd e:  切换盘符          cd  E:\mongodbinstall\bin                   
+1.      进入cmd终端,进入安装目录下的bin目录下cd e:  切换盘符          
+cd  E:\mongodbinstall\bin                   
 2.      执行mongod.exe –dbpath=你自己对应的路径
 mongod.exe —dbpath=D:\data\db
 or
 mongod -dbpath D:\data\db
  看到如上结果,说明启动成功 
- 3.打开另一个黑屏终端,进入安装目录下的bin目录下,在输入mongo.exe
+ 3.    打开另一个黑屏终端,进入安装目录下的bin目录下,在输入mongo.exe
