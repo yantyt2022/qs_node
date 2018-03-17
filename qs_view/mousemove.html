@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+        // 函数节流 mousemove  scroll 加载数据 出现指示 ajax
+        // 函数执行太频繁，内存的使用量增加，页面性能的下降，甚至到死机
+        // 所以应减少执行
+        // 在一定时间50ms内，执行一次  throttle
+        let throttle = (fn,delay = 50) => {
+            let starttime = 0;
+            return function(...args) {
+                let curTime = new Date();
+                if (curTime - starttime >= delay) {
+                    fn.apply(this,args);
+                    starttime = curTime;
+                }
+            }
+        }
+        function doMousemove(event) {
+            console.log(event.clientX,event.clientY);
+        }
+        let slowMousemove = throttle(doMousemove);
+        const oBox = document.querySelector('.box');
+        oBox.addEventListener('mousemove',(event) => {
+            slowMousemove(event);
+        })
+    </script>
+</body>
+</html>
