@@ -7,14 +7,20 @@ const koaLogger = require('koa-logger')
 const bodyParser = require('koa-bodyparser')
 const mongoose = require('mongoose')
 const routers = require('./routes/index')
+const config = require('./config')
 const app = new Koa()
+app.use(bodyParser())
 app.use(views(path.join(__dirname,
     './views'), {
       extension: 'ejs'
     }))
 app.use(convert(koaStatic(
     path.join(__dirname,'./static')
-)))    
+)))  
+
+mongoose.Promise = global.Promise
+mongoose.connect(config.database)
+
 app.use(routers.routes())
 .use(routers.allowedMethods)
 app.listen((3003) , () => {

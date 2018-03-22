@@ -1,5 +1,6 @@
 import React from 'react'
 import { Layout , Menu , Tabs , Form ,Message} from 'antd'
+import LoginTab from '../../components/LoginTab'
 const {Header , Content , Footer} = Layout
 const TabPane = Tabs.TabPane
 class App extends React.Component {
@@ -19,7 +20,7 @@ class App extends React.Component {
                     <div style={{background: '#fff' , padding: 24 , minHeight: 200}}>
                     <Tabs defaultActiveKey="1" size="small">
                         <TabPane tab="登录" key="1">
-                            <div>登录</div>
+                            <LoginTab />
                         </TabPane>
                         <TabPane tab="注册" key="2">
                             <div>注册</div>
